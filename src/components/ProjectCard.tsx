@@ -4,7 +4,6 @@ import type { Project } from '../data/projects';
 
 type ProjectCardProps = {
   project: Project;
-  featured?: boolean;
 };
 
 const isPlaceholderLink = (link: string) => link === '#';
@@ -50,21 +49,12 @@ function ActionLink({ href, label, disabledLabel = 'Coming soon', icon, variant 
   );
 }
 
-export function ProjectCard({ project, featured = false }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const isInLab = project.status === 'in-lab';
-  const articleClassName = [
-    'group overflow-hidden rounded-2xl border bg-white/[0.052] shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/[0.075]',
-    featured
-      ? 'border-amber-200/20 hover:border-amber-200/45 xl:col-span-2 xl:grid xl:grid-cols-[1.12fr_0.88fr]'
-      : 'border-white/10 hover:border-teal-300/45 hover:shadow-glow',
-  ].join(' ');
-  const imageClassName = featured
-    ? 'relative aspect-[16/10] overflow-hidden bg-slate-900 xl:aspect-auto xl:min-h-full'
-    : 'relative aspect-[16/10] overflow-hidden bg-slate-900';
 
   return (
-    <article className={articleClassName}>
-      <div className={imageClassName}>
+    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.052] shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-teal-300/45 hover:bg-white/[0.075] hover:shadow-glow">
+      <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
         <img
           src={assetUrl(project.imagePath)}
           alt={`${project.name} preview`}
@@ -80,7 +70,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         )}
       </div>
 
-      <div className={`flex flex-col p-6 ${featured ? 'xl:min-h-[440px] xl:p-8' : 'min-h-[330px]'}`}>
+      <div className="flex min-h-[330px] flex-col p-6">
         <div className="mb-4 flex flex-wrap gap-2">
           {project.meta.map((item) => (
             <span key={item} className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">
@@ -104,7 +94,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           ))}
         </div>
 
-        <h2 className={`${featured ? 'text-3xl' : 'text-xl'} font-semibold text-white`}>{project.name}</h2>
+        <h2 className="text-xl font-semibold text-white">{project.name}</h2>
         <p className="mt-3 flex-1 text-sm leading-6 text-slate-300">{project.description}</p>
 
         <div className="mt-6 grid grid-cols-1 gap-3 transition duration-300 sm:grid-cols-3 lg:opacity-85 lg:group-hover:opacity-100">
