@@ -66,11 +66,10 @@ export const projects: Project[] = [
     description:
       'Tap-first AI styling experience for generating polished fashion, beauty, and visual identity concepts from simple inputs.',
     imagePath: 'projects/styletap-ai.jpg',
-    appLink: '#',
-    youtubeLink: '#',
+    appLink: 'https://styletap-ai-wgduqibulq-uc.a.run.app',
+    youtubeLink: 'https://www.youtube.com/@AIAgentArt/videos',
     githubLink: 'https://github.com/sonu84it/StyleTap-AI',
-    meta: ['STACK: REACT', 'MODEL: GEMINI', 'STATUS: IN LAB'],
+    meta: ['STACK: REACT', 'MODEL: GEMINI', 'STATUS: LIVE'],
     tags: ['AI Image', 'Gemini', 'MVP', 'Prototype'],
-    status: 'in-lab',
   },
 ];
